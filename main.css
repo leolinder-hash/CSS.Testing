@@ -1,0 +1,113 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+html {
+  background: linear-gradient(to bottom, rgb(255, 183, 193), rgb(248, 129, 129));
+}
+
+h1 {
+  font-size: 47px;
+  padding-top: 17px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+#todosDoneCount {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+#bodyBlock {
+  display: flow-root;
+  text-align: center;
+  background-color: white;
+  margin: 12px auto 0 auto;
+  width: 500px;
+  box-shadow: 0 0 10px rgb(171, 163, 163)
+}
+
+
+label {
+  display: block;
+  color: rgb(0, 0, 0);
+  margin: 3px;
+}
+
+#textInput {
+  font-size: 20px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  width: 200px;
+  margin-right: 2px;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+#AddBtn {
+  width: 50px;
+  border: 1px solid black;
+  border-radius: 4px;
+  font-size: 20px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+
+}
+
+#warningText {
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  font-style: italic;
+  margin-top: 10px;
+  line-height: 1;
+  margin-right: 20px;
+  margin-bottom: 20px;
+
+}
+
+#textInput,
+#AddBtn {
+  display: inline-block;
+  vertical-align: top;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+#MyList {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+#MyList>li {
+  font-size: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  margin-top: 10px;
+}
+
+#MyList>li:first-child{
+  margin-top: 35px;
+}
+
+.trashSpanClass{
+  font-size: 20px;
+  margin-left: 13px;
+  color: rgb(164, 160, 160);
+}
+
+
+
+#textInput:focus {
+  border: 2px solid rgb(17, 17, 163);
+  outline: none;
+}
+
+.done {
+  text-decoration: line-through;
+  color: black;
+}
