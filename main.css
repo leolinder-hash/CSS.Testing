@@ -54,6 +54,22 @@ label {
   font-size: 20px;
   padding-top: 3px;
   padding-bottom: 3px;
+}
+
+#AddBtn:hover{
+  background-color: rgb(234, 223, 223);
+}
+
+.buttonBlink{
+    animation: blink 50ms 1 forwards;
+}
+
+
+
+@keyframes blink{
+  0% {background-color: rgb(240, 240, 240);}
+  50%{background-color: transparent;}
+  100%{background-color: rgb(240, 240, 240);}
 
 }
 
@@ -66,6 +82,18 @@ label {
   line-height: 1;
   margin-right: 20px;
   margin-bottom: 20px;
+
+  animation: shift-color 1s 3 forwards;
+}
+
+@keyframes shift-color{
+  0%, 50%, 100% {
+    color: red;
+  }
+
+  25%, 75%{
+    color: transparent;
+  }
 
 }
 
@@ -90,18 +118,16 @@ label {
   margin-top: 10px;
 }
 
-#MyList>li:first-child{
+#MyList>li:first-child {
   margin-top: 35px;
 }
 
-.trashSpanClass{
+.trashSpanClass {
   font-size: 20px;
   margin-left: 13px;
   color: rgb(164, 160, 160);
   cursor: pointer;
 }
-
-
 
 #textInput:focus {
   border: 2px solid rgb(17, 17, 163);
