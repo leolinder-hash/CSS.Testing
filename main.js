@@ -32,7 +32,6 @@ function addTodo() {
   trashSpan.innerHTML = "&#128465";
   trashSpan.classList.add("trashSpanClass");
   trashSpan.addEventListener("click", ()=>removeTodo(newli,todo));
-  trashSpan.style.cursor = "pointer";
 
   let newli = document.createElement("li");
   newli.appendChild(textSpan);
