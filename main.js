@@ -10,6 +10,8 @@ AddBtn.addEventListener("click", addTodo);
 
 function addTodo() {
   let text = textInput.value.trim();
+  AddBtn.classList.add("buttonBlink");
+  
   if (text === "") {
     warningText.textContent = "Input must not be empty";
     return;
