@@ -27,15 +27,20 @@ h1 {
   background-color: white;
   margin: 12px auto 0 auto;
   width: 500px;
-  box-shadow: 0 0 10px rgb(171, 163, 163)
+  box-shadow: 0 0 10px rgb(171, 163, 163);
+
+  animation: popDown 1s cubic-bezier(0.68, -0.6, 0.32, 1.6) forwards;
+  transform: translateY(-400px);
+  opacity: 0;
 }
 
-
-label {
-  display: block;
-  color: rgb(0, 0, 0);
-  margin: 3px;
+@keyframes popDown {
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
 }
+
 
 #textInput {
   font-size: 20px;
@@ -56,20 +61,26 @@ label {
   padding-bottom: 3px;
 }
 
-#AddBtn:hover{
+#AddBtn:hover {
   background-color: rgb(234, 223, 223);
 }
 
-.buttonBlink{
-    animation: blink 50ms 1 forwards;
+#AddBtn:focus {
+  animation: blink 50ms 1;
 }
 
+@keyframes blink {
+  0% {
+    background-color: rgb(240, 240, 240);
+  }
 
+  50% {
+    background-color: transparent;
+  }
 
-@keyframes blink{
-  0% {background-color: rgb(240, 240, 240);}
-  50%{background-color: transparent;}
-  100%{background-color: rgb(240, 240, 240);}
+  100% {
+    background-color: rgb(240, 240, 240);
+  }
 
 }
 
@@ -81,17 +92,25 @@ label {
   margin-top: 10px;
   line-height: 1;
   margin-right: 20px;
-  margin-bottom: 20px;
-
-  animation: shift-color 1s 3 forwards;
+  margin-bottom: 0px;
 }
 
-@keyframes shift-color{
-  0%, 50%, 100% {
+.warningTextBlink {
+  color: red;
+  animation: shift-color 1s 1 0.1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes shift-color {
+
+  0%,
+  50%,
+  100% {
     color: red;
   }
 
-  25%, 75%{
+  25%,
+  75% {
     color: transparent;
   }
 
@@ -109,6 +128,7 @@ label {
   list-style: none;
   padding-left: 0;
   margin-left: 0;
+  margin-bottom: 40px;
 }
 
 #MyList>li {
@@ -116,6 +136,16 @@ label {
   font-family: Arial, Helvetica, sans-serif;
   color: black;
   margin-top: 10px;
+
+  transform: translateY(20px);
+  animation: todoFade 300ms ease-out forwards;
+}
+
+@keyframes todoFade {
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
 }
 
 #MyList>li:first-child {
@@ -134,7 +164,13 @@ label {
   outline: none;
 }
 
+#MyList li:hover .todoText:not(.done) {
+  text-decoration: line-through;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+}
+
 .done {
   text-decoration: line-through;
-  color: black;
+  color: rgb(155, 150, 150);
 }
