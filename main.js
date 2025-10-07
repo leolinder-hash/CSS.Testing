@@ -9,15 +9,20 @@ let todos = [];
 AddBtn.addEventListener("click", addTodo);
 
 function addTodo() {
+  
   let text = textInput.value.trim();
-  AddBtn.classList.add("buttonBlink");
   
   if (text === "") {
     warningText.textContent = "Input must not be empty";
+    warningText.classList.remove("warningTextBlink");
+    void warningText.offsetWidth;
+    warningText.classList.add("warningTextBlink");
+    textInput.focus();
     return;
   }
 
   warningText.textContent = "";
+
 
   let todo = {
     text: text,
@@ -28,12 +33,13 @@ function addTodo() {
 
   let textSpan = document.createElement("span");
   textSpan.textContent = todo.text;
+  textSpan.classList.add("todoText")
   textSpan.addEventListener("click", () => doneTodo(todo, textSpan));
 
   let trashSpan = document.createElement("span");
   trashSpan.innerHTML = "&#128465";
   trashSpan.classList.add("trashSpanClass");
-  trashSpan.addEventListener("click", ()=>removeTodo(newli,todo));
+  trashSpan.addEventListener("click", () => removeTodo(newli, todo));
 
   let newli = document.createElement("li");
   newli.appendChild(textSpan);
@@ -43,13 +49,13 @@ function addTodo() {
   textInput.value = "";
 }
 
-function doneTodo(todo,textSpan) {
+function doneTodo(todo, textSpan) {
   if (todo.completed === false) {
     textSpan.classList.add("done");
     todo.completed = true;
     finishedTodos++;
   }
-  else{
+  else {
     todo.completed = false;
     textSpan.classList.remove("done");
     finishedTodos--;
@@ -59,12 +65,12 @@ function doneTodo(todo,textSpan) {
 
 }
 
- function removeTodo(newli,todo){
-    MyList.removeChild(newli);
+function removeTodo(newli, todo) {
+  MyList.removeChild(newli);
 
-    for(i=0; i<todos.length;i++){
-      if(todos[i] === todo);
-        todo.splice(i,1);
-        break;
-    }
-  };
+  for (i = 0; i < todos.length; i++) {
+    if (todos[i] === todo);
+    todo.splice(i, 1);
+    break;
+  }
+};
